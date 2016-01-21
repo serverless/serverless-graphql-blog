@@ -12,6 +12,8 @@
   "keywords": [],
   "devDependencies": {},
   "dependencies": {
+    "bluebird": "^3.1.1",
+    "graphql": "^0.4.14",
     "serverless-helpers-js": "~0.0.3"
   }
 }
