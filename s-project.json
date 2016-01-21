@@ -1,0 +1,74 @@
+{
+  "name": "serverless-graphql-blog",
+  "version": "0.0.1",
+  "profile": "serverless-v0.1.2",
+  "location": "https://github.com/serverless/serverless-graphql-blog",
+  "author": "Kevin Old <kevinold@gmail.com>",
+  "description": "A Serverless Blog Project",
+  "custom": {},
+  "plugins": [],
+  "cloudFormation": {
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Description": "The AWS CloudFormation template for this Serverless application's resources outside of Lambdas and Api Gateway",
+    "Resources": {
+      "IamRoleLambda": {
+        "Type": "AWS::IAM::Role",
+        "Properties": {
+          "AssumeRolePolicyDocument": {
+            "Version": "2012-10-17",
+            "Statement": [
+              {
+                "Effect": "Allow",
+                "Principal": {
+                  "Service": [
+                    "lambda.amazonaws.com"
+                  ]
+                },
+                "Action": [
+                  "sts:AssumeRole"
+                ]
+              }
+            ]
+          },
+          "Path": "/"
+        }
+      },
+      "IamPolicyLambda": {
+        "Type": "AWS::IAM::Policy",
+        "Properties": {
+          "PolicyName": "${stage}-${project}-lambda",
+          "PolicyDocument": {
+            "Version": "2012-10-17",
+            "Statement": [
+              {
+                "Effect": "Allow",
+                "Action": [
+                  "logs:CreateLogGroup",
+                  "logs:CreateLogStream",
+                  "logs:PutLogEvents"
+                ],
+                "Resource": "arn:aws:logs:${region}:*:*"
+              }
+            ]
+          },
+          "Roles": [
+            {
+              "Ref": "IamRoleLambda"
+            }
+          ]
+        }
+      }
+    },
+    "Outputs": {
+      "IamRoleArnLambda": {
+        "Description": "ARN of the lambda IAM role",
+        "Value": {
+          "Fn::GetAtt": [
+            "IamRoleLambda",
+            "Arn"
+          ]
+        }
+      }
+    }
+  }
+}
