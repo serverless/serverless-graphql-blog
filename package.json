@@ -9,5 +9,7 @@
     "type": "git",
     "url": "git://github.com/"
   },
-  "dependencies": {}
+  "dependencies": {
+    "serverless-optimizer-plugin": "^0.3.0"
+  }
 }

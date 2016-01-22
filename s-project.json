@@ -6,7 +6,9 @@
   "author": "Kevin Old <kevinold@gmail.com>",
   "description": "A Serverless Blog Project",
   "custom": {},
-  "plugins": [],
+  "plugins": [
+    "serverless-optimizer-plugin"
+  ],
   "cloudFormation": {
     "AWSTemplateFormatVersion": "2010-09-09",
     "Description": "The AWS CloudFormation template for this Serverless application's resources outside of Lambdas and Api Gateway",

@@ -1,5 +1,19 @@
 {
   "name": "blog",
   "runtime": "nodejs",
-  "custom": {}
+  "custom": {
+    "optimize": {
+      "exclude": [ "aws-sdk" ],
+      "transforms": [
+        {
+          "name": "babelify",
+          "opts": {
+            "presets": [
+              "es2015"
+            ]
+          }
+        }
+      ]
+    }
+  }
 }
