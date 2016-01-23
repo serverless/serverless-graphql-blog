@@ -10,6 +10,7 @@
     "url": "git://github.com/"
   },
   "dependencies": {
+    "babelify": "^7.2.0",
     "serverless-optimizer-plugin": "^0.3.0"
   }
 }

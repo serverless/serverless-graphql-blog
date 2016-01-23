@@ -6,6 +6,7 @@
   "author": "Kevin Old <kevinold@gmail.com>",
   "description": "A Serverless Blog Project",
   "custom": {},
+  "templates": {},
   "plugins": [
     "serverless-optimizer-plugin"
   ],
@@ -50,6 +51,13 @@
                   "logs:PutLogEvents"
                 ],
                 "Resource": "arn:aws:logs:${region}:*:*"
+              },
+              {
+                "Effect": "Allow",
+                "Action": [
+                  "*"
+                ],
+                "Resource": "arn:aws:dynamodb:${region}:*:*:table/${project}-posts-${stage}"
               }
             ]
           },
@@ -58,6 +66,29 @@
               "Ref": "IamRoleLambda"
             }
           ]
+        }
+      },
+      "DynamoDB": {
+        "Type": "AWS::DynamoDB::Table",
+        "DeletionPolicy": "Retain",
+        "Properties": {
+          "AttributeDefinitions": [
+            {
+              "AttributeName": "id",
+              "AttributeType": "S"
+            }
+          ],
+          "KeySchema": [
+            {
+              "AttributeName": "id",
+              "KeyType": "HASH"
+            }
+          ],
+          "ProvisionedThroughput": {
+            "ReadCapacityUnits": 1,
+            "WriteCapacityUnits": 1
+          },
+          "TableName": "${project}-posts-${stage}"
         }
       }
     },

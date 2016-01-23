@@ -3,7 +3,9 @@
   "runtime": "nodejs",
   "custom": {
     "optimize": {
-      "exclude": [ "aws-sdk" ],
+      "exclude": [
+        "aws-sdk"
+      ],
       "transforms": [
         {
           "name": "babelify",

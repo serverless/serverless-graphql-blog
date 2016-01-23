@@ -11,12 +11,12 @@
   "endpoints": [
     {
       "path": "resource/graphql",
-      "method": "GET",
+      "method": "POST",
       "authorizationType": "none",
       "apiKeyRequired": false,
       "requestParameters": {},
       "requestTemplates": {
-        "application/json": ""
+        "application/json": "{\"query\" : $input.json(\"$\")}"
       },
       "responses": {
         "400": {

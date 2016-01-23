@@ -1,12 +1,11 @@
-/**
- * Lib
- */
+var _graphql = require('graphql');
+import Schema from './schema';
 
-module.exports.respond = function(event, cb) {
+export function graphql(event, cb) {
 
-  var response = {
-    message: "Your Serverless function ran successfully!"
-  };
+  _graphql.graphql(Schema, event.query).then( function(result) {
+    console.log('RESULT: ', result);
+    return cb(null, result);
+  });
 
-  return cb(null, response);
-};
+}
