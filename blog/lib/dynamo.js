@@ -13,7 +13,8 @@ export function getPosts() {
       AttributesToGet: [
         'id',
         'title',
-        'bodyContent',
+        'author',
+        'bodyContent'
       ]
     };
 
@@ -40,7 +41,7 @@ export function getAuthor(id) {
 
     docClient.get(params, function(err, data) {
       if (err) return reject(err);
-      return resolve(data["Items"]);
+      return resolve(data["Item"]);
     });
 
   });
