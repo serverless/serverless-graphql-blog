@@ -6,7 +6,7 @@ import {
   GraphQLNonNull
 } from 'graphql';
 
-import { getPosts, getAuthor } from './dynamo';
+import { getPosts, getAuthor, getAuthors } from './dynamo';
 
 const Author = new GraphQLObjectType({
   name: "Author",
