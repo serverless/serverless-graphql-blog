@@ -75,7 +75,7 @@
           ]
         }
       },
-      "postsTable": {
+      "PostsDynamo": {
         "Type": "AWS::DynamoDB::Table",
         "DeletionPolicy": "Retain",
         "Properties": {
@@ -95,10 +95,10 @@
             "ReadCapacityUnits": 1,
             "WriteCapacityUnits": 1
           },
-          "TableName": "${project}-posts-{stage}"
+          "TableName": "${project}-posts-${stage}"
         }
       },
-      "authorsTable": {
+      "AuthorsDynamo": {
         "Type": "AWS::DynamoDB::Table",
         "DeletionPolicy": "Retain",
         "Properties": {
