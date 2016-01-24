@@ -24,3 +24,42 @@ export function getPosts() {
 
   });
 }
+
+export function getAuthor(id) {
+  return new Promise(function(resolve, reject) {
+    var params = {
+      TableName: 'serverless-graphql-blog-authors-development',
+      Key: {
+        id: id
+      },
+      AttributesToGet: [
+        'id',
+        'name'
+      ]
+    };
+
+    docClient.get(params, function(err, data) {
+      if (err) return reject(err);
+      return resolve(data["Items"]);
+    });
+
+  });
+}
+
+export function getAuthors() {
+  return new Promise(function(resolve, reject) {
+    var params = {
+      TableName: 'serverless-graphql-blog-authors-development',
+      AttributesToGet: [
+        'id',
+        'name'
+      ]
+    };
+
+    docClient.scan(params, function(err, data) {
+      if (err) return reject(err);
+      return resolve(data["Items"]);
+    });
+
+  });
+}

@@ -2,10 +2,11 @@ import {
   GraphQLObjectType,
   GraphQLSchema,
   GraphQLList,
-  GraphQLString
+  GraphQLString,
+  GraphQLNonNull
 } from 'graphql';
 
-import { getPosts } from './dynamo';
+import { getPosts, getAuthor } from './dynamo';
 
 const Author = new GraphQLObjectType({
   name: "Author",
@@ -26,7 +27,7 @@ const Post = new GraphQLObjectType({
     author: {
       type: Author,
       resolve: function({author}) {
-        return AuthorsMap[author];
+        return getAuthor(author);
       }
     }
   })
@@ -41,6 +42,23 @@ const Query = new GraphQLObjectType({
       description: "List of posts in the blog",
       resolve: function(source, {category}) {
         return getPosts();
+      }
+    },
+    authors: {
+      type: new GraphQLList(Author),
+      description: "List of Authors",
+      resolve: function() {
+        return getAuthors();
+      }
+    },
+    author: {
+      type: Author,
+      description: "Get Author by id",
+      args: {
+        id: {type: new GraphQLNonNull(GraphQLString)}
+      },
+      resolve: function(source, {id}) {
+        return getAuthor(author);
       }
     }
   })
