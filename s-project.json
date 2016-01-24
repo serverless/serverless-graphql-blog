@@ -75,7 +75,7 @@
           ]
         }
       },
-      "DynamoDB": {
+      "postsTable": {
         "Type": "AWS::DynamoDB::Table",
         "DeletionPolicy": "Retain",
         "Properties": {
@@ -98,7 +98,7 @@
           "TableName": "${project}-posts-{stage}"
         }
       },
-      "DynamoDB": {
+      "authorsTable": {
         "Type": "AWS::DynamoDB::Table",
         "DeletionPolicy": "Retain",
         "Properties": {
