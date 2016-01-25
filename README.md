@@ -56,3 +56,29 @@ Returns:
   }
 }
 ```
+
+Get List of posts with post, author and comments information (for a Post with no comments, i.e. comments:[])
+```
+curl -XPOST -d '{"query": "{ posts { id, title, author { id, name }, comments { id, content, author { name } } } }"}' https://dtean5w252.execute-api.us-east-1.amazonaws.com/development/resource/graphql
+```
+
+Returns
+```
+{
+  "data":{
+    "posts":[
+    {
+      "id":"1",
+        "title":"First Post Title",
+        "author":{
+          "id":"1",
+          "name":"Kevin"
+        },
+        "comments":[]
+    }
+    ]
+  }
+}
+```
+
+

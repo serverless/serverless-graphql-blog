@@ -64,3 +64,22 @@ export function getAuthors() {
 
   });
 }
+
+export function getComments() {
+  return new Promise(function(resolve, reject) {
+    var params = {
+      TableName: 'serverless-graphql-blog-comments-development',
+      AttributesToGet: [
+        'id',
+        'content',
+        'author'
+      ]
+    };
+
+    docClient.scan(params, function(err, data) {
+      if (err) return reject(err);
+      return resolve(data["Items"]);
+    });
+
+  });
+}

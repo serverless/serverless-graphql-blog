@@ -6,7 +6,7 @@ import {
   GraphQLNonNull
 } from 'graphql';
 
-import { getPosts, getAuthor, getAuthors } from './dynamo';
+import { getPosts, getAuthor, getAuthors, getComments } from './dynamo';
 
 const Author = new GraphQLObjectType({
   name: "Author",
@@ -14,6 +14,21 @@ const Author = new GraphQLObjectType({
   fields: () => ({
       id: {type: GraphQLString},
       name: {type: GraphQLString}
+    })
+});
+
+const Comment = new GraphQLObjectType({
+  name: "Comment",
+  description: "Comment on the blog post",
+  fields: () => ({
+      id: {type: GraphQLString},
+      content: {type: GraphQLString},
+      author: {
+        type: Author,
+        resolve: function({author}) {
+          return getAuthor(author);
+        }
+      }
     })
 });
 
@@ -28,6 +43,12 @@ const Post = new GraphQLObjectType({
       type: Author,
       resolve: function({author}) {
         return getAuthor(author);
+      }
+    },
+    comments: {
+      type: new GraphQLList(Comment),
+      resolve: function(post) {
+        return getComments();
       }
     }
   })

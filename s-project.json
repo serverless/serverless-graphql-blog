@@ -65,6 +65,15 @@
                   "*"
                 ],
                 "Resource": "arn:aws:dynamodb:${region}:*:*:table/${project}-authors-${stage}"
+              },
+              {
+                "Effect": "Allow",
+                "Action": [
+                  "dynamodb:*Item",
+                  "dynamodb:Query",
+                  "dynamodb:Scan"
+                ],
+                "Resource": "arn:aws:dynamodb:${region}:*:*:table/${project}-comments-${stage}"
               }
             ]
           },
@@ -119,6 +128,29 @@
             "WriteCapacityUnits": 1
           },
           "TableName": "${project}-authors-${stage}"
+        }
+      },
+      "CommentsDynamo": {
+        "Type": "AWS::DynamoDB::Table",
+        "DeletionPolicy": "Retain",
+        "Properties": {
+          "AttributeDefinitions": [
+            {
+              "AttributeName": "id",
+              "AttributeType": "S"
+            }
+          ],
+          "KeySchema": [
+            {
+              "AttributeName": "id",
+              "KeyType": "HASH"
+            }
+          ],
+          "ProvisionedThroughput": {
+            "ReadCapacityUnits": 1,
+            "WriteCapacityUnits": 1
+          },
+          "TableName": "${project}-comments-${stage}"
         }
       }
     },
