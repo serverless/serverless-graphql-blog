@@ -16,7 +16,8 @@
       "apiKeyRequired": false,
       "requestParameters": {},
       "requestTemplates": {
-        "application/json": "{\"query\" : $input.json(\"$\")}"
+        "application/json": "{\"query\" : $input.json(\"$\")}",
+        "application/json": "{\"mutation\" : $input.json(\"$\")}"
       },
       "responses": {
         "400": {

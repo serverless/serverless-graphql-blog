@@ -82,3 +82,20 @@ Returns
 ```
 
 
+# Sample GraphQL Mutations
+Create Post
+```
+curl -XPOST -d '{"mutation": "mutation createNewPost { post: createPost (id: \"5\", title: \"Fifth post!\", bodyContent: \"Test content\", author: \"1\") { id, title } }"}' https://dtean5w252.execute-api.us-east-1.amazonaws.com/development/resource/graphql
+```
+
+Returns:
+```
+{
+  "data":{
+    "post":{
+      "id":"5",
+      "title":"Fifth post!"
+    }
+  }
+}
+```

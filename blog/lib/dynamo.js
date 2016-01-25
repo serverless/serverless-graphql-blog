@@ -6,6 +6,21 @@ const dynamoConfig = {
 };
 const docClient = new AWS.DynamoDB.DocumentClient(dynamoConfig);
 
+export function createPost(post) {
+  return new Promise(function(resolve, reject) {
+    var params = {
+      TableName: 'serverless-graphql-blog-posts-development',
+      Item: post
+    };
+
+    docClient.put(params, function(err, data) {
+      if (err) return reject(err);
+      return resolve(post);
+    });
+
+  });
+}
+
 export function getPosts() {
   return new Promise(function(resolve, reject) {
     var params = {

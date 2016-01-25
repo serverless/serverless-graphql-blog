@@ -6,7 +6,7 @@ import {
   GraphQLNonNull
 } from 'graphql';
 
-import { getPosts, getAuthor, getAuthors, getComments } from './dynamo';
+import { getPosts, getAuthor, getAuthors, getComments, createPost } from './dynamo';
 
 const Author = new GraphQLObjectType({
   name: "Author",
@@ -85,8 +85,28 @@ const Query = new GraphQLObjectType({
   })
 });
 
+const Mutuation = new GraphQLObjectType({
+  name: 'BlogMutations',
+  fields: {
+    createPost: {
+      type: Post,
+      description: "Create blog post",
+      args: {
+        id: {type: new GraphQLNonNull(GraphQLString)},
+        title: {type: new GraphQLNonNull(GraphQLString)},
+        bodyContent: {type: new GraphQLNonNull(GraphQLString)},
+        author: {type: new GraphQLNonNull(GraphQLString), description: "Id of the author"}
+      },
+      resolve: function(source, args) {
+        return createPost(args);
+      }
+    }
+  }
+});
+
 const Schema = new GraphQLSchema({
-  query: Query
+  query: Query,
+  mutation: Mutuation
 });
 
 export default Schema;
