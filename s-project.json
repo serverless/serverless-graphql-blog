@@ -57,23 +57,21 @@
                 "Action": [
                   "*"
                 ],
-                "Resource": "arn:aws:dynamodb:${region}:*:*:table/${project}-posts-${stage}"
+                "Resource": "arn:aws:dynamodb:${region}:*:table/${project}-posts-${stage}"
               },
               {
                 "Effect": "Allow",
                 "Action": [
                   "*"
                 ],
-                "Resource": "arn:aws:dynamodb:${region}:*:*:table/${project}-authors-${stage}"
+                "Resource": "arn:aws:dynamodb:${region}:*:table/${project}-authors-${stage}"
               },
               {
                 "Effect": "Allow",
                 "Action": [
-                  "dynamodb:*Item",
-                  "dynamodb:Query",
-                  "dynamodb:Scan"
+                  *
                 ],
-                "Resource": "arn:aws:dynamodb:${region}:*:*:table/${project}-comments-${stage}"
+                "Resource": "arn:aws:dynamodb:${region}:*:table/${project}-comments-${stage}"
               }
             ]
           },
