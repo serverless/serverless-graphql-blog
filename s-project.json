@@ -69,7 +69,7 @@
               {
                 "Effect": "Allow",
                 "Action": [
-                  *
+                  "*"
                 ],
                 "Resource": "arn:aws:dynamodb:${region}:*:table/${project}-comments-${stage}"
               }
