@@ -85,7 +85,7 @@ Returns
 # Sample GraphQL Mutations
 Create Post
 ```
-curl -XPOST -d '{"mutation": "mutation createNewPost { post: createPost (id: \"5\", title: \"Fifth post!\", bodyContent: \"Test content\", author: \"1\") { id, title } }"}' https://dtean5w252.execute-api.us-east-1.amazonaws.com/development/resource/graphql
+curl -XPOST -d '{"query": "mutation createNewPost { post: createPost (id: \"5\", title: \"Fifth post!\", bodyContent: \"Test content\", author: \"1\") { id, title } }"}' https://dtean5w252.execute-api.us-east-1.amazonaws.com/development/resource/graphql
 ```
 
 Returns:
@@ -98,4 +98,14 @@ Returns:
     }
   }
 }
+```
+
+#Introspection
+```
+curl -XPOST -d '{"query": "{__schema { queryType { name, fields { name, description} }}}"}' https://dtean5w252.execute-api.us-east-1.amazonaws.com/development/resource/graphql
+```
+
+Returns:
+```
+{"data":{"__schema":{"queryType":{"name":"BlogSchema","fields":[{"name":"posts","description":"List of posts in the blog"},{"name":"authors","description":"List of Authors"},{"name":"author","description":"Get Author by id"}]}}}}
 ```
