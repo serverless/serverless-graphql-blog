@@ -5,11 +5,16 @@ const dynamoConfig = {
   region:          process.env.AWS_REGION
 };
 const docClient = new AWS.DynamoDB.DocumentClient(dynamoConfig);
+const stage = process.env.SERVERLESS_STAGE;
+const projectName = SERVERLESS_PROJECT_NAME;
+const postsTable = projectName + '-posts-' + stage;
+const authorsTable = projectName + '-authors-' + stage;
+const commentsTable = projectName + '-comments-' + stage;
 
 export function createPost(post) {
   return new Promise(function(resolve, reject) {
     var params = {
-      TableName: 'serverless-graphql-blog-posts-development',
+      TableName: postsTable,
       Item: post
     };
 
@@ -24,7 +29,7 @@ export function createPost(post) {
 export function getPosts() {
   return new Promise(function(resolve, reject) {
     var params = {
-      TableName: 'serverless-graphql-blog-posts-development',
+      TableName: postsTable,
       AttributesToGet: [
         'id',
         'title',
@@ -44,7 +49,7 @@ export function getPosts() {
 export function getAuthor(id) {
   return new Promise(function(resolve, reject) {
     var params = {
-      TableName: 'serverless-graphql-blog-authors-development',
+      TableName: authorsTable,
       Key: {
         id: id
       },
@@ -65,7 +70,7 @@ export function getAuthor(id) {
 export function getAuthors() {
   return new Promise(function(resolve, reject) {
     var params = {
-      TableName: 'serverless-graphql-blog-authors-development',
+      TableName: authorsTable,
       AttributesToGet: [
         'id',
         'name'
@@ -83,7 +88,7 @@ export function getAuthors() {
 export function getComments() {
   return new Promise(function(resolve, reject) {
     var params = {
-      TableName: 'serverless-graphql-blog-comments-development',
+      TableName: commentsTable,
       AttributesToGet: [
         'id',
         'content',
