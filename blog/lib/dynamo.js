@@ -6,7 +6,7 @@ const dynamoConfig = {
 };
 const docClient = new AWS.DynamoDB.DocumentClient(dynamoConfig);
 const stage = process.env.SERVERLESS_STAGE;
-const projectName = SERVERLESS_PROJECT_NAME;
+const projectName = process.env.SERVERLESS_PROJECT_NAME;
 const postsTable = projectName + '-posts-' + stage;
 const authorsTable = projectName + '-authors-' + stage;
 const commentsTable = projectName + '-comments-' + stage;
