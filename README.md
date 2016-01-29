@@ -119,7 +119,26 @@ curl -XPOST -d '{"query": "{__schema { queryType { name, fields { name, descript
 
 Returns:
 ```
-{"data":{"__schema":{"queryType":{"name":"BlogSchema","fields":[{"name":"posts","description":"List of posts in the blog"},{"name":"authors","description":"List of Authors"},{"name":"author","description":"Get Author by id"}]}}}}
+{
+  "data":{
+    "__schema":{
+      "queryType":{
+        "name":"BlogSchema",
+          "fields":[
+          {
+            "name":"posts",
+            "description":"List of posts in the blog"
+          },{
+            "name":"authors","description":"List of Authors"
+          },
+            {
+              "name":"author","description":"Get Author by id"
+            }
+            ]
+      }
+    }
+  }
+}
 ```
 
 [1]: https://github.com/graphql/graphql-js
