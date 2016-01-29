@@ -2,8 +2,9 @@
 
 This Serverless Project creates a basic blog structure, including Posts, Authors and Comments utilizing [GraphQL][1], a query language created by Facebook for describing data requirements on complex application data models via a single endpoint and DynamoDB for persistant storage.
 
-## Note:
 **This project relies on [graphql-js][1] which currently requires the babel-runtime to be included with the Lambda adding addtional size to the overall lambda.**
+
+### Querying with GraphiQL
 
 The [graphql-js][1] endpoint provided in this Serverless Project is compatible with [GraphiQL][2], a query visualization tool used with [graphql-js][1].
 
