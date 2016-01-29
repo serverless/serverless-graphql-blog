@@ -11,6 +11,6 @@
   },
   "dependencies": {
     "babelify": "^7.2.0",
-    "serverless-optimizer-plugin": "^0.3.0"
+    "serverless-optimizer-plugin": "^1.0.0"
   }
 }
