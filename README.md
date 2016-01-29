@@ -128,13 +128,16 @@ Returns:
           {
             "name":"posts",
             "description":"List of posts in the blog"
-          },{
-            "name":"authors","description":"List of Authors"
           },
-            {
-              "name":"author","description":"Get Author by id"
-            }
-            ]
+          {
+            "name":"authors",
+            "description":"List of Authors"
+          },
+          {
+            "name":"author",
+            "description":"Get Author by id"
+          }
+        ]
       }
     }
   }
