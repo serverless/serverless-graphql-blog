@@ -1,9 +1,9 @@
 #serverless-graphql-blog
 
-This Serverless Project creates a basic blog structure, including Posts, Authors and Comments utilizing [GraphQL][1] as the single endpoint and DynamoDB as storage.
+This Serverless Project creates a basic blog structure, including Posts, Authors and Comments utilizing [GraphQL][1], a query language created by Facebook for describing data requirements on complex application data models via a single endpoint and DynamoDB for persistant storage.
 
-# Note:
-** This project relies on [graphql-js][1] which currently requires the babel-runtime to be included with the Lambda adding addtional size to the overall lambda. **
+## Note:
+**This project relies on [graphql-js][1] which currently requires the babel-runtime to be included with the Lambda adding addtional size to the overall lambda.**
 
 The [graphql-js][1] endpoint provided in this Serverless Project is compatible with [GraphiQL][2], a query visualization tool used with [graphql-js][1].
 
@@ -11,7 +11,7 @@ Usage with [GraphiQL.app][3] (an Electron wrapper around [GraphiQL][2]) is recom
 
 ![GraphiQL.app demo](https://s3.amazonaws.com/various-image-files/graphiql-serverless-graphql-blog-screenshot.png)
 
-# Sample GraphQL queries
+### Sample GraphQL queries
 
 List of author names
 ```
@@ -93,7 +93,7 @@ Returns
 ```
 
 
-# Sample GraphQL Mutations
+### Sample GraphQL Mutations
 Create Post
 ```
 curl -XPOST -d '{"query": "mutation createNewPost { post: createPost (id: \"5\", title: \"Fifth post!\", bodyContent: \"Test content\", author: \"1\") { id, title } }"}' <endpoint>/development/resource/graphql
@@ -111,7 +111,7 @@ Returns:
 }
 ```
 
-#Introspection
+### Introspection Query
 ```
 curl -XPOST -d '{"query": "{__schema { queryType { name, fields { name, description} }}}"}' <endpoint>/development/resource/graphql
 ```
@@ -122,4 +122,5 @@ Returns:
 ```
 
 [1]: https://github.com/graphql/graphql-js
-[2]: https://github.com/skevy/graphiql-app
+[2]: https://github.com/graphql/graphiql
+[3]: https://github.com/skevy/graphiql-app
