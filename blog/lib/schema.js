@@ -6,6 +6,10 @@ import {
   GraphQLNonNull
 } from 'graphql';
 
+import {
+  GraphQLLimitedString
+} from 'graphql-custom-types';
+
 import { getPosts, getAuthor, getAuthors, getComments, createPost } from './dynamo';
 
 const Author = new GraphQLObjectType({
@@ -93,7 +97,7 @@ const Mutuation = new GraphQLObjectType({
       description: "Create blog post",
       args: {
         id: {type: new GraphQLNonNull(GraphQLString)},
-        title: {type: new GraphQLNonNull(GraphQLString)},
+        title: {type: new GraphQLLimitedString(10, 30)},
         bodyContent: {type: new GraphQLNonNull(GraphQLString)},
         author: {type: new GraphQLNonNull(GraphQLString), description: "Id of the author"}
       },
