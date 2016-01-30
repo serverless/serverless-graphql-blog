@@ -12,7 +12,6 @@
   "keywords": [],
   "devDependencies": {},
   "dependencies": {
-    "babel-preset-es2015": "^6.3.13",
     "bluebird": "^3.1.1",
     "graphql": "^0.4.14",
     "graphql-custom-types": "^0.2.0",
