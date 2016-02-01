@@ -4,6 +4,14 @@ This Serverless Project creates a basic blog structure, including Posts, Authors
 
 **This project automatically creates 3 DynamoDB tables upon `serverless dash deploy`.  They are defined in `s-project.json`.**
 
+## Installation
+
+Install as a Serverless Project:
+
+```
+serverless project install serverless-graphql-blog
+```
+
 ### Querying with GraphiQL
 
 The [graphql-js][1] endpoint provided in this Serverless Project is compatible with [GraphiQL][2], a query visualization tool used with [graphql-js][1].
