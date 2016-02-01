@@ -113,6 +113,25 @@ curl -XPOST -d '{"query": "mutation createNewPost { post: createPost (id: \"5\",
 }
 ```
 
+
+#### Mutation Validation
+
+Validations defined using [graphql-custom-types][4] in [blog/lib/schema.js][5]
+```
+curl -XPOST -d '{"query": "mutation createNewPost { post: createPost (id: \"8\", title: \"123456789\", bodyContent: \"Test content 5\") { id, title } }"}' <endpoint>/development/resource/graphql
+```
+
+#### Results
+```
+{
+  "errors":[
+  {
+    "message":"Query error: String not long enough"}
+  ]
+}
+```
+
+
 ### Introspection Query
 ```
 curl -XPOST -d '{"query": "{__schema { queryType { name, fields { name, description} }}}"}' <endpoint>/development/resource/graphql
@@ -148,3 +167,5 @@ Returns:
 [1]: https://github.com/graphql/graphql-js
 [2]: https://github.com/graphql/graphiql
 [3]: https://github.com/skevy/graphiql-app
+[4]: https://github.com/stylesuxx/graphql-custom-types
+[5]: https://github.com/serverless/serverless-graphql-blog/blob/master/blog/lib/schema.js#L100
