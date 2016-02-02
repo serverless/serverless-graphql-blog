@@ -22,7 +22,12 @@ Install this Serverless Project:
 serverless project install serverless-graphql-blog
 ```
 
-Deploy the Function and Endpoint:
+View project summary:
+
+```
+serverless dash summary
+```
+Deploy the project's Function and Endpoint:
 
 ```
 serverless dash deploy
