@@ -12,7 +12,7 @@ This [Serverless Framework](http://www.serverless.com) Project creates a REST AP
 
 Note: This project automatically creates 3 DynamoDB tables upon `serverless project install`.  They are defined in `s-project.json`.
 
-Enjoy,
+Enjoy,<br/>
 Kevin Old ([Twitter](https://twitter.com/kevinold))
 
 ## Install & Deploy
