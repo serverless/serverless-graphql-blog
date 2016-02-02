@@ -2,7 +2,7 @@
 
 #serverless-graphql-blog
 
-This [Serverless](http://www.serverless.com) Project creates a basic blog structure, including Posts, Authors and Comments utilizing [GraphQL][1] and DynamoDB for persistent storage **via a single endpoint**.
+This [Serverless Framework](http://www.serverless.com) Project creates a REST API for a basic blog structure, including Posts, Authors and Comments utilizing [GraphQL][1] and DynamoDB for persistent storage.  What's unique about this implementation is the entire REST API consists of only 1 endpoint.
 
 Note: This project automatically creates 3 DynamoDB tables upon `serverless dash deploy`.  They are defined in `s-project.json`.
 
