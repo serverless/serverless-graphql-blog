@@ -6,8 +6,14 @@ This [Serverless Framework](http://www.serverless.com) Project creates a REST AP
 
 * [Video Walkthrough](https://www.youtube.com/watch?v=lgE5-mm8gX4)
 * [Email Updates](http://eepurl.com/bvz5Nj)
+* [Gitter Chat Room](https://gitter.im/serverless/serverless)
+* [Serverless Documentation](http://docs.serverless.com)
+* [Twitter](https://www.twitter.com/goserverless)
 
 Note: This project automatically creates 3 DynamoDB tables upon `serverless project install`.  They are defined in `s-project.json`.
+
+Enjoy,
+Kevin Old ([Twitter](https://twitter.com/kevinold))
 
 ## Install & Deploy
 
