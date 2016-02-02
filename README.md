@@ -2,9 +2,9 @@
 
 #serverless-graphql-blog
 
-This Serverless Project creates a basic blog structure, including Posts, Authors and Comments utilizing [GraphQL][1], a query language created by Facebook for describing data requirements on complex application data models via a single endpoint and DynamoDB for persistant storage.
+This Serverless Project creates a basic blog structure, including Posts, Authors and Comments utilizing [GraphQL][1] and DynamoDB for persistent storage **via a single endpoint**.
 
-**This project automatically creates 3 DynamoDB tables upon `serverless dash deploy`.  They are defined in `s-project.json`.**
+**Note:** This project automatically creates 3 DynamoDB tables upon `serverless dash deploy`.  They are defined in `s-project.json`.
 
 ## Installation
 
