@@ -4,14 +4,14 @@
 
 This [Serverless Framework](http://www.serverless.com) Project creates a REST API for a basic blog structure, including Posts, Authors and Comments utilizing [GraphQL][1] and DynamoDB for persistent storage.  What's unique about this implementation is the entire REST API consists of only 1 endpoint.
 
+Note: This project automatically creates 3 DynamoDB tables upon `serverless project install`.  They are defined in `s-project.json`.
+
 * [Blog Post](http://kevinold.com/2016/02/01/serverless-graphql.html)
 * [Video Walkthrough](https://www.youtube.com/watch?v=lgE5-mm8gX4)
 * [Email Updates](http://eepurl.com/bvz5Nj)
 * [Gitter Chat Room](https://gitter.im/serverless/serverless)
 * [Serverless Documentation](http://docs.serverless.com)
 * [Twitter](https://www.twitter.com/goserverless)
-
-Note: This project automatically creates 3 DynamoDB tables upon `serverless project install`.  They are defined in `s-project.json`.
 
 Enjoy,<br/>
 Kevin Old ([Twitter](https://twitter.com/kevinold))
