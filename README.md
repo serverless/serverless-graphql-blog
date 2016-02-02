@@ -1,3 +1,5 @@
+![Serverless GraphQL Blog AWS Lambda API Gateway](serverless_graphql_blog.png)
+
 #serverless-graphql-blog
 
 This Serverless Project creates a basic blog structure, including Posts, Authors and Comments utilizing [GraphQL][1], a query language created by Facebook for describing data requirements on complex application data models via a single endpoint and DynamoDB for persistant storage.
