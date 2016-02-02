@@ -53,7 +53,7 @@ Usage with [GraphiQL.app][3] (an Electron wrapper around [GraphiQL][2]) is recom
 
 #### List of author names
 ```
-curl -XPOST -d '{"query": "{ authors { name } }"}' <endpoint>/development/resource/graphql
+curl -XPOST -d '{"query": "{ authors { name } }"}' <endpoint>/dev/resource/graphql
 ```
 
 #### Results
@@ -69,7 +69,7 @@ curl -XPOST -d '{"query": "{ authors { name } }"}' <endpoint>/development/resour
 
 ### List of posts with id and title
 ```
-curl -XPOST -d '{"query": "{ posts { id, title } }"}' <endpoint>/development/resource/graphql
+curl -XPOST -d '{"query": "{ posts { id, title } }"}' <endpoint>/dev/resource/graphql
 ```
 
 #### Results
@@ -87,7 +87,7 @@ curl -XPOST -d '{"query": "{ posts { id, title } }"}' <endpoint>/development/res
 
 #### List of posts with id, title and *nested* author name
 ```
-curl -XPOST -d '{"query": "{ posts { id, title, author { name } } }"}' <endpoint>/development/resource/graphql
+curl -XPOST -d '{"query": "{ posts { id, title, author { name } } }"}' <endpoint>/dev/resource/graphql
 ```
 
 #### Results
@@ -108,7 +108,7 @@ curl -XPOST -d '{"query": "{ posts { id, title, author { name } } }"}' <endpoint
 
 #### List of posts with post, author and comments information (for a Post with no comments, i.e. comments:[])
 ```
-curl -XPOST -d '{"query": "{ posts { id, title, author { id, name }, comments { id, content, author { name } } } }"}' <endpoint>/development/resource/graphql
+curl -XPOST -d '{"query": "{ posts { id, title, author { id, name }, comments { id, content, author { name } } } }"}' <endpoint>/dev/resource/graphql
 ```
 
 #### Results
@@ -135,7 +135,7 @@ curl -XPOST -d '{"query": "{ posts { id, title, author { id, name }, comments { 
 
 #### Create Post
 ```
-curl -XPOST -d '{"query": "mutation createNewPost { post: createPost (id: \"5\", title: \"Fifth post!\", bodyContent: \"Test content\", author: \"1\") { id, title } }"}' <endpoint>/development/resource/graphql
+curl -XPOST -d '{"query": "mutation createNewPost { post: createPost (id: \"5\", title: \"Fifth post!\", bodyContent: \"Test content\", author: \"1\") { id, title } }"}' <endpoint>/dev/resource/graphql
 ```
 
 #### Results
@@ -155,7 +155,7 @@ curl -XPOST -d '{"query": "mutation createNewPost { post: createPost (id: \"5\",
 
 Validations defined using [graphql-custom-types][4] in [blog/lib/schema.js][5]
 ```
-curl -XPOST -d '{"query": "mutation createNewPost { post: createPost (id: \"8\", title: \"123456789\", bodyContent: \"Test content 5\") { id, title } }"}' <endpoint>/development/resource/graphql
+curl -XPOST -d '{"query": "mutation createNewPost { post: createPost (id: \"8\", title: \"123456789\", bodyContent: \"Test content 5\") { id, title } }"}' <endpoint>/dev/resource/graphql
 ```
 
 #### Results
@@ -171,7 +171,7 @@ curl -XPOST -d '{"query": "mutation createNewPost { post: createPost (id: \"8\",
 
 ### Introspection Query
 ```
-curl -XPOST -d '{"query": "{__schema { queryType { name, fields { name, description} }}}"}' <endpoint>/development/resource/graphql
+curl -XPOST -d '{"query": "{__schema { queryType { name, fields { name, description} }}}"}' <endpoint>/dev/resource/graphql
 ```
 
 Returns:
