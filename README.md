@@ -41,6 +41,8 @@ Deploy the project's Function and Endpoint:
 serverless dash deploy
 ```
 
+[![Serverless GraphQL Blog Video Walkthrough](video_serverless_blog_graphql.png)](https://www.youtube.com/watch?v=lgE5-mm8gX4)
+
 ### Querying with GraphiQL
 
 The [graphql-js][1] endpoint provided in this Serverless Project is compatible with [GraphiQL][2], a query visualization tool used with [graphql-js][1].
