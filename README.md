@@ -18,7 +18,7 @@ Kevin Old ([Twitter](https://twitter.com/kevinold))
 
 ## Install & Deploy
 
-Make sure you have the most recent version of the [Serverless Framework](http://www.serverless.com) and you are using NodeV4 or greater.
+Make sure you have the most recent version of the [Serverless Framework](http://www.serverless.com) (0.3.x and higher) and you are using NodeV4 or greater.
 
 ```
 npm install serverless -g
@@ -28,6 +28,12 @@ Install this Serverless Project:
 
 ```
 serverless project install serverless-graphql-blog
+```
+
+Install (top level) npm dependencies
+
+```
+npm install
 ```
 
 View project summary:
