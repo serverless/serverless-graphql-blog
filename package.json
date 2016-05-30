@@ -12,6 +12,6 @@
   "dependencies": {
     "babelify": "^7.2.0",
     "babel-preset-es2015": "^6.3.13",
-    "serverless-optimizer-plugin": "^1.0.0"
+    "serverless-optimizer-plugin": "^2.5.1"
   }
 }
