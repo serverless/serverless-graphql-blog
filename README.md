@@ -2,6 +2,8 @@
 
 [![serverless](http://public.serverless.com/badges/v3.svg)](http://www.serverless.com)
 
+> Please note this project uses Serverless version 0.5
+
 #serverless-graphql-blog
 
 This [Serverless Framework](http://www.serverless.com) Project creates a REST API for a basic blog structure, including Posts, Authors and Comments utilizing [GraphQL][1] and DynamoDB for persistent storage.  What's unique about this implementation is the entire REST API consists of only 1 endpoint.
